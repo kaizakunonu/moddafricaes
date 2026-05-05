@@ -1,0 +1,12 @@
+# .lintr
+linters: list(
+  line_length_linter(80),
+  indentation_linter(2),
+  object_name_linter(styles = "snake_case"),
+  trailing_whitespace_linter()
+)
+
+exclusions: list(
+  "R/old_code.R",  # Don't lint this file
+  "tests/"  # Don't lint this directory
+)

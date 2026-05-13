@@ -36,3 +36,6 @@ provinces, and returns the combined bounding box in Copernicus CDS
 order (N, W, S, E). Optionally prints per-province centroids and
 bounding boxes for inspection.
 }
+\examples{
+provinces = c("Kinshasa")
+}

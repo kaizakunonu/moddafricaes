@@ -5,3 +5,7 @@
 ^\.positai$
 ^\.claude$
 ^LICENSE\.md$
+^\.lintr$
+^AGENTS\.md$
+^\.github$
+^README\.Rmd$

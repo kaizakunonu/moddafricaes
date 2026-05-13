@@ -16,6 +16,10 @@
 #' @param verbose    If `TRUE`, print centroids and per-province bboxes.
 #'
 #' @return Named numeric vector of length 4 in CDS order: `c(N, W, S, E)`.
+#' @export
+#'
+#' @examples
+#' provinces = c("Kinshasa")
 get_province_bbox <- function(provinces  = c("Kinshasa"),
                               shp_zip    = "data-acquisition/utilities/province26.zip",
                               shp_path   = "provinces26/Province26.shp",

@@ -9,6 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `get_bbox(shp_path, crs = 4326)` — reads any shapefile (including `/vsizip/...` paths) and returns its bounding box in Copernicus CDS order `c(N, W, S, E)`.
 - `extract_era5land(bbox, years, output_dir, ...)` — downloads ERA5-Land hourly NetCDFs from the Copernicus CDS for a `c(N, W, S, E)` bbox, staging one file per (year, month) under `<output_dir>/<year>/`. Requires the `CDS_API_KEY` environment variable.
 - `transform_era5land(input_dir, output_dir, dem_tif, years, ...)` — reads the per-month NetCDFs `extract_era5land()` produced, de-accumulates `tp` and `ssrd`, derives wind speed / RH / VPD / Celsius temperature, joins a DEM-derived `elevation_m` onto the ERA5-Land 0.1 deg grid, and writes one Parquet per year. Intermediate per-day Parquets are staged under `<output_dir>/_daily/<year>/` and deleted after the year file passes a readability check.
+- `transform_era5land_monthly(input_nc, output_path, dem_tif, ...)` — transforms a single CDS `era5-land-monthly-means` NetCDF into one Parquet. **Does not** de-accumulate `tp`/`ssrd` — the monthly product stores per-day means, so monthly accumulation is `value * days_in_month` (not a cumulative diff). Reuses the file-local helpers in `R/transform_era5land.R`.
 
 The intended composition is `get_bbox()` → `extract_era5land()` → `transform_era5land()`: bbox flows into the downloader, the downloader's NetCDFs flow into the transformer.
 

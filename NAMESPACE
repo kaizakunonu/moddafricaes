@@ -3,4 +3,5 @@
 export(extract_era5land)
 export(get_bbox)
 export(transform_era5land)
+export(transform_era5land_minmax)
 export(transform_era5land_monthly)

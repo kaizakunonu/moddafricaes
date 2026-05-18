@@ -2,13 +2,13 @@
 % Please edit documentation in R/get_elevation.R
 \name{get_elevation}
 \alias{get_elevation}
-\title{Generate and Export an Elevation Map for a Given Country}
+\title{Extract and Export an Elevation Map for a Given Country}
 \usage{
 get_elevation(
   country_code,
   output_file = NULL,
   plot = TRUE,
-  data_path = tempdir(),
+  data_path = tempdir(check = TRUE),
   map_title = NULL
 )
 }
@@ -43,8 +43,8 @@ ggplot2, exports the result as a GeoTIFF, and returns metadata.
 }
 \examples{
 \dontrun{
-result <- elevation_map("TZA")
-result <- elevation_map("KEN", output_file = "kenya_dem.tif", map_title = "Kenya Elevation")
+result <- get_elevation("TZA")
+result <- get_elevation("KEN", output_file = "kenya_dem.tif", map_title = "Kenya Elevation")
 }
 
 }

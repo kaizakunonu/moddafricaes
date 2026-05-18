@@ -50,7 +50,7 @@ You will also need a Copernicus CDS account and an API key exported as
 
 | Function | Stage | Output |
 |----|----|----|
-| `get_bbox()` | Setup | `c(N, W, S, E)` numeric vector (CDS) |
+| `get_bounding_box()` | Setup | `c(N, W, S, E)` numeric vector (CDS) |
 | `extract_era5land()` | Download | One NetCDF per (year, month) |
 | `transform_era5land()` | Transform | One Parquet per year (hourly) |
 | `transform_era5land_monthly()` | Transform | One Parquet (monthly means) |
@@ -64,8 +64,8 @@ All bounding boxes throughout the package are in Copernicus CDS order
 ``` r
 library(moddafricaes)
 
-# 1. Derive a bbox from any shapefile (zipped shapefiles work via /vsizip/).
-bbox <- get_bbox(
+# 1. Derive a bounding box from any shapefile (zipped shapefiles work via /vsizip/).
+bbox <- get_bounding_box(
   "/vsizip/data-acquisition/utilities/province26.zip/provinces26/Province26.shp"
 )
 bbox
